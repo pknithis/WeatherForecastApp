@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    tools:context=".MainActivity"
+    android:background="@drawable/bg">
+
+    <TextView
+        android:id="@+id/txtHead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Forecast Search"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Street"
+        android:id="@+id/txtStreet"
+        android:layout_below="@+id/txtHead"
+        android:layout_toStartOf="@+id/txtHead"
+        android:layout_marginTop="20sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtAddress"
+        android:layout_alignBottom="@+id/txtStreet"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="53dp"
+        android:layout_toEndOf="@+id/txtStreet"
+        android:layout_below="@+id/txtHead" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="City"
+        android:id="@+id/txtCity"
+        android:layout_below="@+id/txtStreet"
+        android:layout_alignStart="@+id/txtStreet"
+        android:layout_marginTop="43dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtCity"
+        android:layout_alignBottom="@+id/txtCity"
+        android:layout_alignEnd="@+id/edtAddress"
+        android:layout_toEndOf="@+id/txtStreet" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="State"
+        android:id="@+id/txtState"
+        android:layout_alignBottom="@+id/spState"
+        android:layout_alignStart="@+id/txtCity" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spState"
+        android:spinnerMode="dropdown"
+        android:entries="@array/spinnerItems"
+        android:layout_below="@+id/edtCity"
+        android:layout_toEndOf="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Degree"
+        android:id="@+id/textView"
+        android:layout_below="@+id/spState"
+        android:layout_alignStart="@+id/txtState"
+        android:layout_marginTop="31dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fahrenheit"
+        android:id="@+id/fah"
+        android:checked="true"
+        android:layout_alignTop="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Celsius"
+        android:id="@+id/cel"
+        android:layout_alignTop="@+id/fah"
+        android:layout_toEndOf="@+id/fah"
+        android:checked="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/btSearch"
+        android:layout_below="@+id/fah"
+        android:layout_alignEnd="@+id/textView"
+        android:onClick="searchClickHandler"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:id="@+id/btClear"
+        android:layout_alignBottom="@+id/btSearch"
+        android:layout_alignEnd="@+id/edtCity" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About"
+        android:id="@+id/btAbout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/btSearch"
+        android:layout_marginBottom="37dp"
+        android:onClick="aboutClickHandler" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/txtError"
+        android:layout_above="@+id/btAbout"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignEnd="@+id/cel"
+        android:textColor="@color/errorColor"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Powered By:\n FORECAST.IO"
+        android:id="@+id/txtAbout"
+        android:layout_alignBottom="@+id/btAbout"
+        android:layout_alignEnd="@+id/txtError" />
+
+</RelativeLayout>
